@@ -1,6 +1,6 @@
 const yargs = require('yargs')
 
-const geocode = require('./geocode/geocode')
+const mapquest = require('./geocode/geocode')
 const weather = require('./weather/weather')
 
 
@@ -18,3 +18,11 @@ const argv = yargs
     .argv
 
     // This file should only obtain the information and display it into the terminal
+
+    mapquest.mapquestAddress(argv.address, (errorMessage, results) => {
+        if (errorMessage) {
+            console.log(errorMessage)
+        } else {
+            console.log(JSON.stringify(results, undefined, 2))
+        }
+    })
