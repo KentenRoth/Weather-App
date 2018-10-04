@@ -23,6 +23,21 @@ const argv = yargs
         if (errorMessage) {
             console.log(errorMessage)
         } else {
-            console.log(JSON.stringify(results, undefined, 2))
+            console.log(results.lat, results.lng)
+            weather.getWeather(results.lat, results.lng, (errorMessage, weatherResults) => {
+                if (errorMessage) {
+                    console.log(errorMessage)
+                } else {
+                    console.log(`Today is ${weatherResults.summary}`)
+                    console.log(`With a temperature of ${weatherResults.temp} that feels like ${weatherResults.feels}`)
+                    console.log(`The humidity level is ${weatherResults.humidity}`)
+                    if (weatherResults.precip === 0) {
+                        console.log('There is currently a 0% chance of precipitation')
+                    } else {
+                        console.log(`There is a ${weatherResults.precip}% chance of ${weatherResults.precipType}`)
+                    }
+                    
+                }
+            })
         }
     })
