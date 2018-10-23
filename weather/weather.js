@@ -7,6 +7,7 @@ const darkSky = API_KEYS.dark_sky_key
 // get upcoming forcast daily summary and % chance of rain each day.
 
 
+
 const getWeather = (lat, lng, callback) => {
     request({
         url: `https://api.darksky.net/forecast/${darkSky}/${lat},${lng}`,
@@ -23,7 +24,7 @@ const getWeather = (lat, lng, callback) => {
                 feels: body.currently.apparentTemperature,
                 humidity: body.currently.humidity,
                 precip: body.currently.precipProbability,
-                precipType: body.currently.precipType
+                precipType: body.currently.precipType,
             })
         }
     })

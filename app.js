@@ -31,6 +31,7 @@ const argv = yargs
                     console.log(`Today is ${weatherResults.summary}`)
                     console.log(`With a temperature of ${weatherResults.temp} that feels like ${weatherResults.feels}`)
                     console.log(`The humidity level is ${weatherResults.humidity}`)
+                    console.log(weatherResults.forcast)
                     if (weatherResults.precip === 0) {
                         console.log('There is currently a 0% chance of precipitation')
                     } else {
