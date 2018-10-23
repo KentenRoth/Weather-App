@@ -9,6 +9,9 @@ const darkSky = API_KEYS.dark_sky_key
 
 
 const getWeather = (lat, lng, callback) => {
+
+
+    
     request({
         url: `https://api.darksky.net/forecast/${darkSky}/${lat},${lng}`,
         json: true
@@ -25,9 +28,15 @@ const getWeather = (lat, lng, callback) => {
                 humidity: body.currently.humidity,
                 precip: body.currently.precipProbability,
                 precipType: body.currently.precipType,
+                forcast: forcastSummary = (i) => {
+                    for  (i = 0; i < 8; i++) {
+                        body.daily.data[0].summary
+                    }
+                }
             })
         }
     })
 }
+
 
 module.exports.getWeather = getWeather

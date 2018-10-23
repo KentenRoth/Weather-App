@@ -37,8 +37,21 @@ const argv = yargs
                     } else {
                         console.log(`There is a ${weatherResults.precip}% chance of ${weatherResults.precipType}`)
                     }
+                    console.log('The Upcoming forcast looks like this')
+                        for (i = 1; i < 8; i++) {
+                            console.log(weatherResults.forcast[i])
+                    }
+                
+
                     
                 }
             })
         }
     })
+
+
+
+
+
+
+
